@@ -76,7 +76,7 @@ def histogram():
     fig = px.bar(top_10_races, x='Race', y='Nombre de Chevaux',
                 color='Race', color_discrete_sequence=custom_colors)
     fig.update_layout(showlegend=False)
-    fig.update_yaxes(title_text='', showticklabels=False)
+    fig.update_yaxes(title_text='', showticklabels=True)
     return fig
 
 
@@ -99,10 +99,9 @@ def courbe():
                  color_discrete_sequence=['#4E8E8E'])
     fig.update_layout(yaxis=dict(fixedrange=True,  # Fixer l'échelle de l'axe Y principal
             range=[0, counts_by_month['Nombre de Chevaux'].max()]))  # Définir une échelle fixe pour Y
-    fig.update_yaxes(title_text='', showticklabels=False)
+    fig.update_yaxes(title_text='', showticklabels=True)
     return fig
 
-@st.cache_resource
 def nuage_mot():
     df = pd.read_csv("data/data_nettoye.csv")
     # Supprimez les lignes avec des noms nuls
