@@ -1,0 +1,43 @@
+.css-1y4p8pa {
+    padding-top: 2rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+div.block-container {
+    padding-top: 2rem;
+}
+
+div[data-testid="metric-container"] {
+    flex: 1;
+    width: 300px;
+    margin: auto;
+    padding: 10px;
+    border: 1px solid grey;
+    border-radius: 15px;
+    text-align: center;
+}
+
+div[data-testid="stMetricLabel"]{
+    text-align: center;
+}
+
+.css-17c4ue {
+    flex-direction: row;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 0px;
+    display: inline-block !important;
+    visibility: visible;
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-size: medium;
+    text-align: center;
+}
