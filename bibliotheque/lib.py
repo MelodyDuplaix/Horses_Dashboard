@@ -73,9 +73,10 @@ def histogram():
     top_10_races = pd.concat([top_10_races, others_df], ignore_index=True)
     custom_colors = ['#2E2E2E', '#3E5E5E', '#4E8E8E', '#5EAEBE', '#6ECECE', '#7EA8A8', '#8E8282', '#9EADAD', '#AEA3A3', '#BE9E9E', '#CEB3B3']    
     # Créez un graphique en barres pour représenter la proportion des races et spécifiez les couleurs pour chaque barre
-    fig = px.bar(top_10_races, x='Race', y='',
+    fig = px.bar(top_10_races, x='Race', y='Nombre de Chevaux',
                 color='Race', color_discrete_sequence=custom_colors)
     fig.update_layout(showlegend=False)
+    fig.update_yaxes(title_text='', showticklabels=False)
     return fig
 
 
@@ -94,10 +95,11 @@ def courbe():
     # Comptez le nombre de chevaux par mois et par année
     counts_by_month = df_clean.groupby(['Année', 'Mois']).size().reset_index(name='Nombre de Chevaux')
     # Créez un graphique en barres pour la variation saisonnière par mois
-    fig = px.line(counts_by_month, x='Mois', y='', animation_frame='Année',
+    fig = px.line(counts_by_month, x='Mois', y='Nombre de Chevaux', animation_frame='Année',
                  color_discrete_sequence=['#4E8E8E'])
     fig.update_layout(yaxis=dict(fixedrange=True,  # Fixer l'échelle de l'axe Y principal
             range=[0, counts_by_month['Nombre de Chevaux'].max()]))  # Définir une échelle fixe pour Y
+    fig.update_yaxes(title_text='', showticklabels=False)
     return fig
 
 @st.cache_resource
