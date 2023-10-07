@@ -15,6 +15,7 @@ def formatage_de_la_page(fichier_css):
     with open(fichier_css) as f:
         st.markdown(f"<style>{f.read()}</style>", unsafe_allow_html=True)
 
+@st.cache_data
 def nombre_de_chevaux():
     df = pd.read_csv("data/data_nettoye.csv")
     today = datetime.datetime.today()
@@ -23,11 +24,13 @@ def nombre_de_chevaux():
     nombre = df[(df["DATE_DE_DECES"].notna())&(df["DATE_DE_NAISSANCE"]>today-datetime.timedelta(days=365*40))].shape[0]
     return nombre
 
+@st.cache_data
 def age_moyen():
     df = pd.read_csv("data/data_nettoye.csv")
     nombre = round(df['AGE'].mean(), 2)
     return nombre
 
+@st.cache_data
 def camembert():
     df = pd.read_csv("data/data_nettoye.csv")
     # Comptez le nombre de chevaux par sexe
@@ -42,7 +45,7 @@ def camembert():
     fig.update_layout(showlegend=False)
     return fig
 
-
+@st.cache_data
 def histogram():
     df = pd.read_csv("data/data_nettoye.csv")
     # Supprimez les lignes avec des races nulles
@@ -76,7 +79,7 @@ def histogram():
     return fig
 
 
-
+@st.cache_data
 def courbe():
     df = pd.read_csv("data/data_nettoye.csv")
     df["DATE_DE_NAISSANCE"] = pd.to_datetime(df["DATE_DE_NAISSANCE"], errors="coerce")
@@ -97,7 +100,7 @@ def courbe():
             range=[0, counts_by_month['Nombre de Chevaux'].max()]))  # Définir une échelle fixe pour Y
     return fig
 
-
+@st.cache_data
 def nuage_mot():
     df = pd.read_csv("data/data_nettoye.csv")
     # Supprimez les lignes avec des noms nuls
