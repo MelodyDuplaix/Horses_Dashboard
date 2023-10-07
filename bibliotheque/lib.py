@@ -100,7 +100,7 @@ def courbe():
             range=[0, counts_by_month['Nombre de Chevaux'].max()]))  # Définir une échelle fixe pour Y
     return fig
 
-@st.cache_data
+@st.cache_resource
 def nuage_mot():
     df = pd.read_csv("data/data_nettoye.csv")
     # Supprimez les lignes avec des noms nuls
