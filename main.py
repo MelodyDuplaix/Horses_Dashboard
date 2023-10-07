@@ -61,7 +61,7 @@ with colonneline:
     "Nombre de naissance par année et par mois de 1960 à 2022"
     st.plotly_chart(courbe(), use_container_width=True)
 with colonnenuage:
-    st.markdown("<h2>Noms les Plus Courants : Un Nuage de Mots Équestre</h2>", unsafe_allow_html=True)
+    st.markdown("<h2>Noms les Plus Courants : Un Nuage de Mots Équins</h2>", unsafe_allow_html=True)
     "Noms des chevaux selon leur fréquence de 1985 à aujourd'hui"
     st.pyplot(nuage_mot(), use_container_width=True)
     
