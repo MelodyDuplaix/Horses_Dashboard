@@ -48,7 +48,10 @@ with colonne2:
 colonnepie, colonnehisto = st.columns(2)
 with colonnepie:
     st.markdown("<h2>Élevage de Chevaux : Forte Présence de Juments</h2>", unsafe_allow_html=True)
-    "Nombre de chevaux par race en 2023"
+    "Nombre de chevaux par sexe en 2023"
+    "M: Mâles"
+    "F: Juments"
+    "H: Hongres"
     st.plotly_chart(camembert(), use_container_width=True)
 with colonnehisto:
     st.markdown("<h2>Races de Chevaux : Majorité Inconnues</h2>", unsafe_allow_html=True)
