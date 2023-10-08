@@ -84,7 +84,7 @@ def histogram():
 def courbe():
     df = pd.read_csv("data/data_nettoye.csv")
     df["DATE_DE_NAISSANCE"] = pd.to_datetime(df["DATE_DE_NAISSANCE"], errors="coerce")
-    df["DATE_DE_DECES"] = pd.to_datetime(df["DATE_DE_DECES"], errors="coerce")
+    df["DATE_DE_DECES"] = pd.to_datetime(df["DATE_DE_NAISSANCE"], errors="coerce")
     # Supprimez les lignes avec des dates de naissance nulles
     df_clean = df.dropna(subset=['DATE_DE_NAISSANCE'])
     # Extrait l'année et le mois de la colonne 'DATE_DE_NAISSANCE'
@@ -92,8 +92,31 @@ def courbe():
     df_clean['Mois'] = df_clean['DATE_DE_NAISSANCE'].dt.month
     # Filtrer les données pour commencer en 1960 et exclure l'année 2023
     df_clean = df_clean[(df_clean['Année'] >= 1960) & (df_clean['Année'] < 2023)]
+    
+    # Remplacez les chiffres des mois par les noms des mois manuellement
+    mois_dict = {
+        1: 'Janvier',
+        2: 'Février',
+        3: 'Mars',
+        4: 'Avril',
+        5: 'Mai',
+        6: 'Juin',
+        7: 'Juillet',
+        8: 'Août',
+        9: 'Septembre',
+        10: 'Octobre',
+        11: 'Novembre',
+        12: 'Décembre'
+    }
+    df_clean['Mois'] = df_clean['Mois'].map(mois_dict)
+    
+    # Définir l'ordre des mois pour l'axe x
+    mois_order = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre']
+    df_clean['Mois'] = pd.Categorical(df_clean['Mois'], categories=mois_order, ordered=True)
+    
     # Comptez le nombre de chevaux par mois et par année
     counts_by_month = df_clean.groupby(['Année', 'Mois']).size().reset_index(name='Nombre de Chevaux')
+    
     # Créez un graphique en barres pour la variation saisonnière par mois
     fig = px.line(counts_by_month, x='Mois', y='Nombre de Chevaux', animation_frame='Année',
                  color_discrete_sequence=['#4E8E8E'])
@@ -101,6 +124,28 @@ def courbe():
             range=[0, counts_by_month['Nombre de Chevaux'].max()]))  # Définir une échelle fixe pour Y
     fig.update_yaxes(title_text='', showticklabels=True)
     return fig
+
+
+# def courbe():
+#     df = pd.read_csv("data/data_nettoye.csv")
+#     df["DATE_DE_NAISSANCE"] = pd.to_datetime(df["DATE_DE_NAISSANCE"], errors="coerce")
+#     df["DATE_DE_DECES"] = pd.to_datetime(df["DATE_DE_DECES"], errors="coerce")
+#     # Supprimez les lignes avec des dates de naissance nulles
+#     df_clean = df.dropna(subset=['DATE_DE_NAISSANCE'])
+#     # Extrait l'année et le mois de la colonne 'DATE_DE_NAISSANCE'
+#     df_clean['Année'] = df_clean['DATE_DE_NAISSANCE'].dt.year
+#     df_clean['Mois'] = df_clean['DATE_DE_NAISSANCE'].dt.month
+#     # Filtrer les données pour commencer en 1960 et exclure l'année 2023
+#     df_clean = df_clean[(df_clean['Année'] >= 1960) & (df_clean['Année'] < 2023)]
+#     # Comptez le nombre de chevaux par mois et par année
+#     counts_by_month = df_clean.groupby(['Année', 'Mois']).size().reset_index(name='Nombre de Chevaux')
+#     # Créez un graphique en barres pour la variation saisonnière par mois
+#     fig = px.line(counts_by_month, x='Mois', y='Nombre de Chevaux', animation_frame='Année',
+#                  color_discrete_sequence=['#4E8E8E'])
+#     fig.update_layout(yaxis=dict(fixedrange=True,  # Fixer l'échelle de l'axe Y principal
+#             range=[0, counts_by_month['Nombre de Chevaux'].max()]))  # Définir une échelle fixe pour Y
+#     fig.update_yaxes(title_text='', showticklabels=True)
+#     return fig
 
 def nuage_mot():
     df = pd.read_csv("data/data_nettoye.csv")
