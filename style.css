@@ -24,12 +24,12 @@ div[data-testid="stMetricLabel"]{
     text-align: center;
 }
 
-.css-17c4ue {
-    flex-direction: row;
+label[data-testid="stMetricLabel"] div, label[data-testid="stMetricLabel"] {
+    display: inline-block !important;
+    flex-direction: row !important;
     -webkit-box-align: center;
     align-items: center;
     margin-bottom: 0px;
-    display: inline-block !important;
     visibility: visible;
 }
 
@@ -43,19 +43,21 @@ p {
     text-align: center;
 }
 
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container.css-z5fcl4.ea3mdgi4 > div:nth-child(1) > div > div:nth-child(5) > div:nth-child(1) > div:nth-child(1) > div > div:nth-child(5) {
+.legende {
     position: relative;
-    bottom: 90px;
+    bottom:300px;
+    left: 60px;
     padding-bottom: 0;
     margin-bottom: 0;
 }
 
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container.css-z5fcl4.ea3mdgi4 > div:nth-child(1) > div > div:nth-child(4) {
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container > div:nth-child(1) > div > div:nth-child(4) {
     margin-bottom: 40px;
     margin-top: 40px;
 }
 
-#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container.css-z5fcl4.ea3mdgi4 > div:nth-child(1) > div > div:nth-child(6) {
+#root > div:nth-child(1) > div.withScreencast > div > div > div > section > div.block-container > div:nth-child(1) > div > div:nth-child(6) {
     padding-top: 0;
     margin-top: 0;
 }
+
