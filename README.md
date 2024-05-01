@@ -27,6 +27,19 @@ L'analyse des naissances par mois et par année a révélé des tendances saison
 
 Enfin, une exploration des noms les plus couramment donnés aux chevaux a apporté une touche légère à l'analyse, révélant des choix tels que "Princesse" ou "Caline", souvent attribués aux poneys et aux chevaux d'instruction.
 
+Maquette du dashbaord:
+
+![image  - Evaluation Dashboard maquette excalidraw](https://github.com/MelodyDuplaix/Horses_Dashboard/assets/131142776/879d7197-2630-44e1-b9a5-f34c7bfbfb1f)
+
+Dashboard entier:
+![](https://i.imgur.com/117HR2Y.png)
+
+Haut du dashboard:
+![](https://i.imgur.com/sZPuVy2.png)
+
+Bas du dashboard:
+![](https://i.imgur.com/diq1PMx.png)
+
 ## Conclusion
 
 Ce tableau de bord offre une vue complète et interactive de la population équine en France. Il met en lumière la prédominance des juments et étalons, l'âge moyen élevé des chevaux, les tendances saisonnières des naissances, ainsi que la diversité des races et des noms. Ces analyses fournissent des insights essentiels pour les professionnels du secteur équin et les passionnés de chevaux.
